@@ -7,6 +7,18 @@ app.get('/', (req, res)=>{
     res.send('Pedro Bauer');
 });
 
+const primeiroIntermediario = (req, res, next)=>{
+    console.log('passei no primeiro intermediario');
+    next()
+};
+const segundoIntermediario = (req, res, next)=>{
+    console.log('passei no segundo intermediario');
+    next()
+};
+
+app.use(primeiroIntermediario);
+app.use(segundoIntermediario);
+
 //localhost:3000/professores
 app.get('/professores', filtrarProfessores)
 
